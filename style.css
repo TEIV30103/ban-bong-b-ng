@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: black url(image/backg.png) no-repeat center top;
+    background-size: cover;
+}
+
+canvas{
+    border: 1px solid;
+    margin: 0px auto;
+    display: block;
+}
+
+
+
+#p{
+    position: relative;
+    font-size: 200%;
+    width: 150px;
+    display: inline;
+    top: 30px;
+    left: 80%;
+}
+
+
+#restart{
+    position: fixed;
+    width: 500px;
+    text-align: center;
+    background-color:rgba(210, 217, 222,0.89);
+    top: 20%;
+    left: 30%;
+    display: none;
+}
+#restart img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+
+#bt{
+    display: block;
+    width: 20%;
+    height: 35px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+#doc{
+    width: 70%;
+    float: left;
+    transition: .4s;
+}
+#xeo{
+    width: 30%;
+    float: right;
+    transition: .4s;
+}
+#chedo{
+    position:relative;
+    left: -30px;
+    margin: 0 auto;
+    margin-top: -35px;
+    opacity: 0.7;
+    background-color: rgb(183, 121, 241);
+    width: 15.5%;
+    height: 35px;
+    border-radius: 14px;
+    transition: .4s;
+}
