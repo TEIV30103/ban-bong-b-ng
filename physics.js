@@ -59,7 +59,8 @@ class physic{
         if(game.ballAll.countRow() == rowLose){
             document.getElementById("restart").style.display ="block";
             game.ballAll.speedBalls = 0;
-            game.ball.speedBall = 0;
+            game.ballAll.setSpeedBall(0);
+            game.bulletball.pause = true;
         }
     }
 

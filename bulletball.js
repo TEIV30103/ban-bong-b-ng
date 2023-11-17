@@ -2,7 +2,7 @@ class bulletball{
     constructor(game){
         this.game = game;
         this.createStartProperties();
-        
+        this.pause = false;
     }
 
     createStartProperties(){
@@ -16,7 +16,8 @@ class bulletball{
         this.x = bullet_ball_start_x; 
         this.y = bullet_ball_start_y;
         
-        this.color = this.ramdomColor();
+        this.color = this.game.bulletball2.color;
+        this.game.bulletball2.update();
         this.loadImage();
     }
 
@@ -28,14 +29,8 @@ class bulletball{
         this.image.src ="image/"+this.color+'.png';
     }
 
-    ramdomColor(){
-        var colors = ['do' , 'xanh' , 'vang'];
-        var r = Math.round(Math.random() *2);
-        return colors[r];
-    }
-
     fire(mousePosition){
-        if (this.isMoving){
+        if (this.isMoving || this.pause == true){
             return;
         }
         var deg = Math.atan2(mousePosition.y - this.y, mousePosition.x - this.x);
@@ -60,7 +55,7 @@ class bulletball{
         
 
         // check over top
-        if (this.y + ball_radius <=0 ){
+        if (this.y + ball_radius <=0 || this.y - ball_radius >= game_height){
             this.createStartProperties();
         }
     }
@@ -74,5 +69,6 @@ class bulletball{
             this.x - ball_radius,
             this.y - ball_radius
         )
+        this.game.bulletball2.draw();
     }
 }

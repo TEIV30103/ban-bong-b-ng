@@ -9,7 +9,7 @@ class ball{
         this.speedBall = 0.2;
         this.image = null;
         this.isImageLoaded = false;
-        this.color = this.ramdomColor();
+        this.color = this.randomColor();
         this.loadImage();
         
         this.calculatePosition();
@@ -25,7 +25,7 @@ class ball{
         this.y = this.game.ballAll.y - ( row_height * this.row);
     }
 
-    ramdomColor(){
+    randomColor(){
         var colors = ['do' , 'xanh' , 'vang'];
         var r = Math.round(Math.random() *2);
         return colors[r];

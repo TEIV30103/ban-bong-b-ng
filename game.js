@@ -21,6 +21,9 @@ class game{
         else{
             this.ballAll = new ballAllXeo(this);
         }
+        // create bulletBall2
+        this.bulletball2 = new bulletball2(this);
+
         // create bulletBall
         this.bulletball = new bulletball(this);
 

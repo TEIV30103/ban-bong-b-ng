@@ -22,6 +22,14 @@ class ballAll{
         return (this.y +30 > ((this.numRow())*row_height));
     }
 
+    setSpeedBall(speed){
+        for (var i in this.balls){
+            for (var j in this.balls[i]){
+                this.balls[i][j].speedBall =speed;
+            }
+        }
+    }
+
     createNewRow(){
         var row = this.numRow();
         // console.log(row , this.numBallBullet);

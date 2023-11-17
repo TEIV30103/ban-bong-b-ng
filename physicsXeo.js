@@ -27,13 +27,14 @@ class physicXeo{
                     col = (ball2.x - ball_radius_Xeo) / (ball_radius_Xeo *2) -0.5;
                     row = Math.round( (game.ballAll.y - ball2.y) / row_height);
                     var row1 = row;
-                    if(bullet.y < ball2.y + 22){
+                    var col1 = col;
+                    if(bullet.y > ball2.y -3.3){
                         row --;
                     }
-                    else if(bullet.y > ball2.y + 26){
+                    else if(bullet.y < ball2.y + 8){
                         row++;
                     }
-                    if(bullet.x < ball2.x - ball_radius_Xeo+4){
+                    if(bullet.x < ball2.x - ball_radius_Xeo + 5.3){
                         if(row1 == row){
                             col -=2;
                         }
@@ -43,9 +44,58 @@ class physicXeo{
                         if(row1 == row){
                             col +=2;
                         }
-                        else col +=1;
+                        else{
+                            col +=1;
+                            if (col >= 19) col-=2;
+                        }
                     }
                     
+                    if (game.ballAll.findBall(row,col) != undefined){
+                        var i = row - row1;
+                        var j = col - col1;
+                        if (i == -1){
+                            if (j < 0){
+                                if (bullet.x < ball2.x - ball_radius_Xeo +1){
+                                    row ++;
+                                    col --;
+                                }
+                                else{
+                                    col +=2;
+                                }
+                                
+                            }
+                            else{
+                                if (bullet.x > ball2.x + ball_radius_Xeo -1){
+                                    row++;
+                                    col++;
+                                }
+                                else{
+                                    col -=2;
+                                }
+                            }
+                        }
+                        else if (i == 0){
+                            if (j < 0){
+                                row--;
+                                col ++;
+                            }
+                            else{
+                                row --;
+                                col --;
+                            }
+                        }
+                        else if (i == 1){
+                            if (j < 0){
+                                row--;
+                                col --;
+                            }
+                            else{
+                                row --;
+                                col ++;
+                            }
+                        }
+                    }
+
                     ballBullet = new ball(game,row,col);
                     ballBullet.color = game.bulletball.color;
                     ballBullet.image.src = "image/"+ballBullet.color+'.png';
@@ -72,7 +122,8 @@ class physicXeo{
         if(game.ballAll.countRow() == rowLose){
             document.getElementById("restart").style.display ="block";
             game.ballAll.speedBalls = 0;
-            game.ball.speedBall = 0;
+            game.ballAll.setSpeedBall(0);
+            game.bulletball.pause = true;
         }
     }
 
