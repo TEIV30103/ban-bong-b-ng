@@ -19,5 +19,8 @@ class arrow{
         this.game.context.moveTo(bullet_ball_start_x, bullet_ball_start_y);
         this.game.context.lineTo(this.mousePosition.x, this.mousePosition.y);
         this.game.context.stroke();
+        
+        let deg = Math.atan2(this.mousePosition.y - bullet_ball_start_y , this.mousePosition.x - bullet_ball_start_x);
+        document.getElementById("imgKP").style.transform = "rotate("+(deg-90-0.1)*3.14*20+"deg)";
     }
 }
